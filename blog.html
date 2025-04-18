@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='IE=EmulateIE7' http-equiv='X-UA-Compatible'/>
+  
+    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
+  <title>Gujarat Overseas Education</title>
+ 
+<link type="text/css" rel="stylesheet" href="style.css" />
+<style>
+   ul#postList {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul#postList li {
+      background: #edf7ff;
+      padding: 5px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    ul#postList li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    ul#postList li a:hover {
+      text-decoration: none;
+	  color: #007BFF;
+    }
+
+    .post-date {
+      color: #777;
+      font-size: 0.9em;
+      margin-left: 8px;
+    }
+
+  #paginationControls {
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+  }
+
+  #paginationControls button {
+    padding: 6px 12px;
+    font-size: 14px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    background: #0066CC;
+	color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #paginationControls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  #paginationControls select {
+    padding: 4px 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+</style>
+
+  
+</head>
+
+<body>
+
+  <div class='wrapper'>
+    <header>Gujarat Overseas Education</header>
+    <div style='background-color: #0066cc; color:white; text-align:center;'>Your Future In Healthcare Begins With Us</div>
+    <div class='hamburger' onclick='document.body.classList.toggle(&apos;nav-open&apos;)'>&#9776; Menu</div>
+    <nav>
+      <a href='index.html'>Home</a>
+      <a href='about.html'>About Us</a>
+      <a href='services.html'>Services</a>
+      <a href='blog.html'>Blog</a>
+    </nav>
+    <main>
+<h3>Latest Posts</h3>
+
+<ul id="postList">Loading posts...</ul>
+<div id="paginationControls" style="margin-top: 20px;"></div>
+
+<script>
+  let allPosts = [];
+  let currentPage = 1;
+  const postsPerPage = 5;
+
+  function renderPage(page) {
+    const postList = document.getElementById("postList");
+    postList.innerHTML = "";
+
+    const start = (page - 1) * postsPerPage;
+    const end = start + postsPerPage;
+    const pagePosts = allPosts.slice(start, end);
+
+    pagePosts.forEach(entry => {
+      const title = entry.title.$t;
+      const link = entry.link.find(l => l.rel === "alternate").href;
+
+      const publishedDate = new Date(entry.published.$t);
+      const formattedDate = publishedDate.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      });
+
+      const li = document.createElement("li");
+
+      const a = document.createElement("a");
+      a.href = link;
+      a.textContent = '\u27A4 ' + title;
+      a.target = "_blank";
+
+      const dateSpan = document.createElement("span");
+      dateSpan.textContent = `📅 ${formattedDate}`;
+      dateSpan.style.display = "inline-block";
+      dateSpan.style.fontSize = "0.8em";
+      dateSpan.style.color = "#000000";
+      dateSpan.style.marginTop = "4px";
+
+      li.appendChild(a);
+      li.appendChild(dateSpan);
+      postList.appendChild(li);
+    });
+
+    renderPaginationControls();
+  }
+
+  function renderPaginationControls() {
+    const totalPages = Math.ceil(allPosts.length / postsPerPage);
+    const controls = document.getElementById("paginationControls");
+    controls.innerHTML = "";
+
+    if (totalPages <= 1) return;
+
+    // Prev Button
+    const prevBtn = document.createElement("button");
+    prevBtn.textContent = "⬅️ Prev";
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.onclick = () => {
+      currentPage--;
+      renderPage(currentPage);
+    };
+    controls.appendChild(prevBtn);
+
+    // Page X of Y Text
+    const pageText = document.createElement("span");
+    pageText.textContent = ` Page ${currentPage} of ${totalPages} `;
+    pageText.style.margin = "0 10px";
+    controls.appendChild(pageText);
+
+    // Next Button
+    const nextBtn = document.createElement("button");
+    nextBtn.textContent = "Next ➡️";
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.onclick = () => {
+      currentPage++;
+      renderPage(currentPage);
+    };
+    controls.appendChild(nextBtn);
+
+    // Go to Page Selector
+    const select = document.createElement("select");
+    for (let i = 1; i <= totalPages; i++) {
+      const option = document.createElement("option");
+      option.value = i;
+      option.textContent = `Go to page ${i}`;
+      if (i === currentPage) option.selected = true;
+      select.appendChild(option);
+    }
+
+    select.onchange = (e) => {
+      currentPage = parseInt(e.target.value);
+      renderPage(currentPage);
+    };
+
+    select.style.marginLeft = "15px";
+    controls.appendChild(select);
+  }
+
+  function listPosts(json) {
+    const entries = json.feed.entry;
+    if (entries && entries.length > 0) {
+      allPosts = entries;
+      renderPage(currentPage);
+    } else {
+      document.getElementById("postList").innerHTML = "<li>No posts found.</li>";
+    }
+  }
+</script>
+
+<!-- Load Blogger posts -->
+<script src="https://goe235.blogspot.com/feeds/posts/default?alt=json-in-script&callback=listPosts&max-results=999"></script>
+
+</main>
+    <footer>
+      10 Astron Avenue, Bhayli, Vadodara - 391410<br/>
+      Phone: 9909219258 | Email: gujaratoverseas653@gmail.com
+    </footer>
+  </div>
+</body>
+</html>

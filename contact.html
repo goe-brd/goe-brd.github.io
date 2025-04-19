@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='IE=EmulateIE7' http-equiv='X-UA-Compatible'/>
+  
+    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
+  <title>Gujarat Overseas Education</title>
+ 
+<link type="text/css" rel="stylesheet" href="style.css" />
+<style>
+ .contact-form {
+      background: #fff;
+      padding: 10px;
+      max-width: 500px;
+      margin: 10px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: normal;
+      color: #000000;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      margin-top: 10px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      padding: 5px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+
+    .thank-you {
+      display: none;
+      color: green;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+</style>
+
+  
+</head>
+
+<body>
+
+  <div class='wrapper'>
+    <header>Gujarat Overseas Education</header>
+    <div style='background-color: #0066cc; color:white; text-align:center;'>Your Future In Healthcare Begins With Us</div>
+    <div class='hamburger' onclick='document.body.classList.toggle(&apos;nav-open&apos;)'>&#9776; Menu</div>
+    <nav>
+      <a href='index.html'>Home</a>
+      <a href='about.html'>About Us</a>
+      <a href='services.html'>Services</a>
+      <a href='blog.html'>Blog</a>
+	  <a href='contact.html'>Contact Us</a>
+	  
+    </nav>
+    <main>
+<div class="contact-form">
+    <form id="contactForm" action="https://formsubmit.co/gujaratoverseas653@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Contact Number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="3" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <div class="thank-you" id="thankYouMessage">
+      ✅ Thank you! Your message has been sent.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const thankYou = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', function (e) {
+      // Frontend validation
+      const phone = document.getElementById('phone').value;
+      const phonePattern = /^[0-9]{10,15}$/;
+
+      if (!phonePattern.test(phone)) {
+        alert('Please enter a valid contact number (10-15 digits).');
+        e.preventDefault();
+        return;
+      }
+
+      // Show thank-you message after redirect block
+      form.style.display = 'none';
+      thankYou.style.display = 'block';
+    
+	setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 5000);
+  });
+	
+	
+  </script>
+
+</main>
+    <footer>
+      10 Astron Avenue, Bhayli, Vadodara - 391410<br/>
+      Phone: 9909219258 | Email: gujaratoverseas653@gmail.com
+    </footer>
+  </div>
+</body>
+</html>

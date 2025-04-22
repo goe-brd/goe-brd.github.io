@@ -120,15 +120,7 @@ footer {
   }
 
   @media screen and (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-
-    thead tr {
-      display: none;
-    }
-
-    tbody tr {
+     tbody tr {
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 6px;

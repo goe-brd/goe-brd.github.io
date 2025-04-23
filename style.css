@@ -93,6 +93,17 @@ footer {
   .nav-open nav {
     display: flex;
   }
+   tbody tr {
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    td {
+      position: relative;
+      padding-left: 50%;
+    }
 }
 
 
@@ -119,18 +130,4 @@ footer {
     background-color: #f2f2f2;
   }
 
-  @media screen and (max-width: 600px) {
-     tbody tr {
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 10px;
-    }
-
-    td {
-      position: relative;
-      padding-left: 50%;
-    }
-    }
-   
 

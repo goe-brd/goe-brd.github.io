@@ -93,17 +93,6 @@ footer {
   .nav-open nav {
     display: flex;
   }
-   tbody tr {
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      padding: 10px;
-    }
-
-    td {
-      position: relative;
-      padding-left: 50%;
-    }
 }
 
 

@@ -67,7 +67,7 @@ main {
   flex: 1;
   overflow-y: auto;
   background: #d6ebfc;
-  max-height: calc(100vh - 280px);
+  max-height: calc(100vh - 320px);
 }
 
 /* Footer always at bottom */

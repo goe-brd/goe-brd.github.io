@@ -45,6 +45,7 @@ nav {
   background-color: #007bff;
   gap: 15px;
   padding: 3px 0;
+  width: 100%;
 }
 
 nav a {

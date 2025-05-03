@@ -79,18 +79,12 @@ footer {
   font-size: 14px;
 }
 
-.responsive {
-  width: 100%;
-  height: auto;
-}
-
 a { color:black; text-decoration: none; }
 a:hover { color: red; }
 
  img.responsive-image {
     width: 50%;
   }
-
 
 /* Responsive menu */
 @media (max-width: 768px) {
@@ -110,4 +104,7 @@ a:hover { color: red; }
   img.responsive-image {
       width: 100%;
     }
+  header-responsive-image {
+    width: 85%;
+  }
 }

@@ -85,8 +85,9 @@ a:hover { color: red; }
  img.responsive-image {
     width: 50%;
   }
-header-responsive-image {
-    width: 80%;
+ .header-responsive-image {
+    height: 100px;
+    width: auto;
   }
 
 /* Responsive menu */
@@ -107,7 +108,8 @@ header-responsive-image {
   img.responsive-image {
       width: 100%;
     }
-  header-responsive-image {
-    width: 50%;
-  }
+ .header-responsive-image {
+      width: 100%;
+      height: auto;
+    }
 }

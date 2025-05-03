@@ -109,7 +109,7 @@ a:hover { color: red; }
       width: 100%;
     }
  .header-responsive-image {
-      width: 100%;
+      width: 50%;
       height: auto;
     }
 }

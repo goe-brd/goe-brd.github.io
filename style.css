@@ -85,6 +85,9 @@ a:hover { color: red; }
  img.responsive-image {
     width: 50%;
   }
+header-responsive-image {
+    width: 100%;
+  }
 
 /* Responsive menu */
 @media (max-width: 768px) {

@@ -110,6 +110,6 @@ a:hover { color: red; }
     }
  .header-responsive-image {
       width: 85%;
-      height: auto;
+      height: 100px;
     }
 }

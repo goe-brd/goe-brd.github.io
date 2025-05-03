@@ -85,10 +85,14 @@ a:hover { color: red; }
  img.responsive-image {
     width: 50%;
   }
- .header-responsive-image {
-    height: 100px;
-    width: auto;
-  }
+ #banner {
+	background: #0066cc url('https://goe-brd.github.io/goe_banner.png');
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding: 10px;
+	height: 100px;
+ }
 
 /* Responsive menu */
 @media (max-width: 768px) {

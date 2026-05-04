@@ -122,4 +122,13 @@ a:hover { color: red; }
 	padding: 10px;
 	height: 130px;
  }
+
+header {
+    height: auto !important;
+    padding: 8px 12px !important;
+  }
+
+  header img {
+    max-height: 40px;
+  }	
 }

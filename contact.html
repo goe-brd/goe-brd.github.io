@@ -6,64 +6,7 @@
     <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
   <title>Gujarat Overseas Education</title>
  <link rel="icon" href="https://goe-brd.github.io/goe.ico" type="image/x-icon">
-<link type="text/css" rel="stylesheet" href="style.css" />
-<style>
- .contact-form {
-      background: #fff;
-      padding: 10px;
-      max-width: 50%;
-     min-width: 50%;
-      margin: 10px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-	 float: left;
-    }
-
-    .contact-form h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .contact-form label {
-      display: block;
-      margin-top: 15px;
-      font-weight: normal;
-      color: #000000;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 5px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-
-    .contact-form button {
-      margin-top: 10px;
-      background: #007BFF;
-      color: #fff;
-      border: none;
-      padding: 5px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .contact-form button:hover {
-      background: #0056b3;
-    }
-
-    .thank-you {
-      display: none;
-      color: green;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-</style>
-
+<link type="text/css" rel="stylesheet" href="https://goe-brd.github.io/style.css" />
   
 </head>
 
@@ -85,59 +28,71 @@
 	  
     </nav>
     <main>
-<div class="contact-form">
-    <form id="contactForm" action="https://formsubmit.co/gujaratoverseas653@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
+	
+<div style="width:100%; float:left;">	
+<div style="width:49%; float:left;">
+<center>
+<h2>Request Call Back</h2>
+  <p>⚡ Limited Seats Available – We will contact you soon.</p>
+</center>
+  <form id="callbackForm" style="background: white; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 20px; margin: auto; max-width: 500px; padding: 25px;">
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="phone">Contact Number</label>
-      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="3" required></textarea>
-
-      <button type="submit">Send</button>
-    </form>
-
-    <div class="thank-you" id="thankYouMessage">
-      ✅ Thank you! Your message has been sent.
-    </div>
-  </div>
-
-  <script>
-    const form = document.getElementById('contactForm');
-    const thankYou = document.getElementById('thankYouMessage');
-
-    form.addEventListener('submit', function (e) {
-      // Frontend validation
-      const phone = document.getElementById('phone').value;
-      const phonePattern = /^[0-9]{10,15}$/;
-
-      if (!phonePattern.test(phone)) {
-        alert('Please enter a valid contact number (10-15 digits).');
-        e.preventDefault();
-        return;
-      }
-
-      // Show thank-you message after redirect block
-      form.style.display = 'none';
-      thankYou.style.display = 'block';
+    Name: <input name="name" required="" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 12px; width: 100%;" type="text" />
     
-	setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 5000);
-  });
-	
-	
-  </script>
+    Contact Number: <input name="phone" required="" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 12px; width: 100%;" type="tel" />
+    
+    Email: <input name="email" placeholder="Email (Optional)" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 12px; width: 100%;" type="email" />
+    
+    <select name="country" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 12px; width: 100%;">
+      <option value="">Preferred Country</option>
+      <option>Russia</option>
+      <option>Georgia</option>
+      <option>Uzbekistan</option>
+      <option>Other Country</option>
+    </select>
 
-<div style="float:right;">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29535.244943676433!2d73.1248281!3d22.2815648!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc7848402c1c7%3A0xff998562f654577c!2z4KSX4KWB4KSc4KSw4KS-4KSkIOCkk-CkteCksOCkuOClgOCknCDgpI_gpJzgpYHgpJXgpYfgpLbgpKg!5e0!3m2!1shi!2sin!4v1746277847167!5m2!1shi!2sin" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <button style="background: rgb(243, 156, 18); border-color: currentcolor; border-image: initial; border-radius: 6px; border-style: none; border-width: medium; border: none; color: white; font-size: 16px; padding: 14px; width: 100%;" type="submit">
+      Request Call Back
+    </button>
+
+    <p id="msg" style="font-weight: bold; margin-top: 15px;"></p>
+
+  </form>
+</section>
+
+<script>
+document.getElementById("callbackForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let msg = document.getElementById("msg");
+
+  var name = this.name.value;
+  var phone = this.phone.value;
+  var country = this.country.value;
+
+  // Save to Google Sheet
+  fetch("https://script.google.com/macros/s/AKfycbzWlWHG0burSe8sTinPgm9pSx4UBKxnFZ1NBp8D7PS_Pl84niDi0ncD6NI1yFuhM7xX/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      name: name,
+      phone: phone,
+      email: this.email.value,
+      country: country
+    })
+  });
+
+  
+  msg.innerHTML = `
+    ✅ Message Sent!;
+
+  document.getElementById("callbackForm").reset();
+});
+</script>  
+</div>
+
+<div style="width:49%;float:right;">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29535.244943676433!2d73.1248281!3d22.2815648!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc7848402c1c7%3A0xff998562f654577c!2z4KSX4KWB4KSc4KSw4KS-4KSkIOCkk-CkteCksOCkuOClgOCknCDgpI_gpJzgpYHgpJXgpYfgpLbgpKg!5e0!3m2!1shi!2sin!4v1746277847167!5m2!1shi!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 </div>
 <div style="clear:both;" />
 	    

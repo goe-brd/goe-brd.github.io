@@ -105,7 +105,9 @@ iframe {
 
     <div class="contact-form card">
       <h2>Request Call Back</h2>
-      <form id="callbackForm" style="background: white; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 20px; margin: auto; max-width: 500px; padding: 25px;">
+  <p>⚡ Limited Seats Available – We will contact you soon.</p>
+</center>
+  <form id="callbackForm" style="background: white; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 20px; margin: auto; max-width: 500px; padding: 25px;">
 
     Name: <input name="name" required="" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 12px; width: 100%;" type="text" />
     
@@ -121,11 +123,46 @@ iframe {
       <option>Other Country</option>
     </select>
 
-    <button type="submit">
-      Send
+    <button style="background: rgb(243, 156, 18); border-color: currentcolor; border-image: initial; border-radius: 6px; border-style: none; border-width: medium; border: none; color: white; font-size: 16px; padding: 14px; width: 100%;" type="submit">
+      Request Call Back
     </button>
 
     <p id="msg" style="font-weight: bold; margin-top: 15px;"></p>
+
+  </form>
+</section>
+
+<script>
+document.getElementById("callbackForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let msg = document.getElementById("msg");
+
+  var payload = {
+    name: this.name.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    country: this.country.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzsAcHEmmgBii7hmC_f5mEHK4yqibskHzy9skuQTKFfGajr1fg1bBgSUsSv95SOUtKO/exec", {
+    method: "POST",
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.text())   // IMPORTANT
+  .then(data => {
+    msg.innerHTML = "✅ Message Sent Successfully!";
+    msg.style.color = "green";
+    document.getElementById("callbackForm").reset();
+  })
+  .catch(err => {
+    console.log(err);
+    msg.innerHTML = "❌ Network Error!";
+    msg.style.color = "red";
+  });
+
+});
+</script>
 
   </form>
     </div>
@@ -143,33 +180,5 @@ iframe {
       Phone: 9909219258 | Email: gujaratoverseas653@gmail.com
     </footer>
   </div>
-  
-  <script>
-document.getElementById("callbackForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  let msg = document.getElementById("msg");
-
-  var form = this;
-
-  var formData = new FormData(form);
-
-  fetch("https://script.google.com/macros/s/AKfycbx1E8pgKzCRbzpx5s86_5gq7xltUOGVkeIuq7IUIlcRL08tuK89szMzVB9uoYwjS02n/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-    msg.innerHTML = "✅ Message Sent Successfully!";
-    msg.style.color = "green";
-    form.reset();
-  })
-  .catch(error => {
-    msg.innerHTML = "❌ Error! Try again.";
-    msg.style.color = "red";
-  });
-
-});
-</script>
 </body>
 </html>

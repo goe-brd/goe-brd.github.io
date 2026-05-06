@@ -7,7 +7,79 @@
   <title>Gujarat Overseas Education</title>
  <link rel="icon" href="https://goe-brd.github.io/goe.ico" type="image/x-icon">
 <link type="text/css" rel="stylesheet" href="https://goe-brd.github.io/style.css" />
-  
+<style>
+.contact-wrapper {
+  display: flex;
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 25px;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.contact-map {
+  flex: 1;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0066cc;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #07406d;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border-radius: 15px;
+  border: 0;
+}
+
+.contact-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  iframe {
+    min-height: 300px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+}
+</style>  
 </head>
 
 <body>
@@ -28,14 +100,12 @@
 	  
     </nav>
     <main>
-	
-<div style="width:100%; float:left;">	
-<div style="width:49%; float:left;">
-<center>
-<h2>Request Call Back</h2>
-  <p>⚡ Limited Seats Available – We will contact you soon.</p>
-</center>
-  <form id="callbackForm" style="background: white; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 20px; margin: auto; max-width: 500px; padding: 25px;">
+
+<div class="contact-wrapper">
+
+    <div class="contact-form card">
+      <h2>Request Call Back</h2>
+      <form id="callbackForm" style="background: white; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 20px; margin: auto; max-width: 500px; padding: 25px;">
 
     Name: <input name="name" required="" style="border-radius: 6px; border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 12px; width: 100%;" type="text" />
     
@@ -51,16 +121,30 @@
       <option>Other Country</option>
     </select>
 
-    <button style="background: #007BFF; border-color: currentcolor; border-image: initial; border-radius: 6px; border-style: none; border-width: medium; border: none; color: white; font-size: 16px; padding: 14px; width: 100%;" type="submit">
-      Request Call Back
+    <button type="submit">
+      Send
     </button>
 
     <p id="msg" style="font-weight: bold; margin-top: 15px;"></p>
 
   </form>
-</section>
+    </div>
 
-<script>
+    <div class="contact-map">
+      <iframe src="https://maps.google.com/maps?q=vadodara&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+
+  </div>
+<div style="clear:both;" />
+	    
+</main>
+    <footer>
+      10 Astron Avenue, Bhayli, Vadodara - 391410<br/>
+      Phone: 9909219258 | Email: gujaratoverseas653@gmail.com
+    </footer>
+  </div>
+  
+  <script>
 document.getElementById("callbackForm").addEventListener("submit", function(e){
   e.preventDefault();
 
@@ -88,19 +172,5 @@ document.getElementById("callbackForm").addEventListener("submit", function(e){
   document.getElementById("callbackForm").reset();
 });
 </script>  
-</div>
-
-<div style="width:49%;float:right;">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29535.244943676433!2d73.1248281!3d22.2815648!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc7848402c1c7%3A0xff998562f654577c!2z4KSX4KWB4KSc4KSw4KS-4KSkIOCkk-CkteCksOCkuOClgOCknCDgpI_gpJzgpYHgpJXgpYfgpLbgpKg!5e0!3m2!1shi!2sin!4v1746277847167!5m2!1shi!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-</div>
-<div style="clear:both;" />
-	    
-</main>
-    <footer>
-      10 Astron Avenue, Bhayli, Vadodara - 391410<br/>
-      Phone: 9909219258 | Email: gujaratoverseas653@gmail.com
-    </footer>
-  </div>
 </body>
 </html>
